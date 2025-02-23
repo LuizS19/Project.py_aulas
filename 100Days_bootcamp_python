@@ -1,3 +1,5 @@
+#Gerador de nomes de bandas, baseado na cidade de nascimento e nome do pet.
+#Autor: Luis Fernando Barros dos Santos.
 print("Bem vindo ao Gerador de nomes.")
 cidade = input("Qual cidade você nasceu?")
 pet = input("QUal o nome do seu pet?")
