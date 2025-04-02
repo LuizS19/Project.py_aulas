@@ -1,34 +1,36 @@
 def ilha_do_tesouro():
+   while True: # Loop para reiniciar o jogo
     print("Seja bem-vindo à Ilha do Tesouro!")
     print("Sua missão é encontrar o tesouro.")
     
     escolha1 = input("Você quer ir para direita ou esquerda? ").lower()
     if escolha1 == "esquerda":
         print("Você caiu em um buraco e morreu.")
-        return
+        continue # Reinicia o loop
     elif escolha1 != "direita":
         print("Você encontrou um rio")
 
     escolha2 = input("Você encontrou um rio, quer nadar ou esperar? ").lower()
     if escolha2 == "nadar":
         print("Um tubarão te comeu.")
-        return
+        continue
     elif escolha2 != "esperar":
         print("Você encontrou uma casa.")
         
     escolha3 = input("Você encontrou uma casa, quer entrar na casa ou seguir pela floresta? ").lower()
-    if escolha3 != "casa":
+    if escolha3 != "Entrar na casa":
         print("Você foi atacado por um urso.")
-        return
+        continue
     
     escolha4 = input("Você quer abrir a porta amarela ou azul? ").lower()
     if escolha4 == "amarela":
         print("Você foi atacado por um leão.")
-        return
+        continue
 
     else :
         print("Você achou o tesouro!")
-        return
+        break # Sai do loop
+    print("Fim de jogo!")
     
 if __name__ == "__main__":
     ilha_do_tesouro()
