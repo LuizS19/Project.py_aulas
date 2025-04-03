@@ -1,0 +1,38 @@
+import random
+# Lista de palavras
+world_list = ["Brasil", "Argentina", "Chile"]
+
+# Escolhe uma palavra aleatória
+choen_world = random.choice(world_list).lower()
+
+# Criar o placeholder da palavra com "_"
+placeholder = "_" * len(choen_world)
+print(placeholder)  # Mostra a palavra oculta
+
+# Variável para armazenar a palavra adivinhada até o momento
+display = list(placeholder)
+
+# Loop para adivinhar as letras
+while True:
+    guess = input("Adivinhe uma letra: ").lower()
+    print(guess)  # Mostra a letra escolhida pelo usuário
+
+    # Verifica se a letra está na palavra escolhida
+    if guess in choen_world:
+        print("Você acertou!")
+
+        # Atualizar a variável display com a letra correta
+        for index, letter in enumerate(choen_world):
+            if letter == guess:
+                display[index] = letter
+
+    else:
+        print("Você errou!")
+
+    # Mostra o progresso atual do usuário
+    print(" ".join(display))
+
+    # Verifica se o jogador descobriu todas as letras
+    if "_" not in display:
+        print("Parabéns! Você descobriu a palavra:", choen_world.capitalize())
+        break  # Encerra o loop se o jogador acertar toda a palavra
