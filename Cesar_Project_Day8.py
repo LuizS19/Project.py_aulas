@@ -10,32 +10,32 @@ logo = '''
 print(logo)
 
 # Alfabeto usado na cifra
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-# Função principal da cifra
-def ceasar(original_text, shift_amount, encode_or_decode):
-    output_text = ""
-    for letter in original_text:
-        if letter not in alphabet:
-            output_text += letter
+# Função principal da cifra de César
+def cifra_cesar(texto_original, deslocamento, direcao):
+    texto_resultado = ""
+    for letra in texto_original:
+        if letra not in alfabeto:
+            texto_resultado += letra
         else:
-            if encode_or_decode == "decode":
-                shift_amount *= -1
-            shifted_position = alphabet.index(letter) + shift_amount
-            shifted_position %= len(alphabet)
-            output_text += alphabet[shifted_position]
-    print(f"Here is the {encode_or_decode}d result: {output_text}")
+            if direcao == "decodificar":
+                deslocamento *= -1
+            posicao_alterada = alfabeto.index(letra) + deslocamento
+            posicao_alterada %= len(alfabeto)
+            texto_resultado += alfabeto[posicao_alterada]
+    print(f"Resultado {direcao}do: {texto_resultado}")
 
 # Loop principal do programa
-should_continue = True
-while should_continue:
-    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt: ").lower()
-    text = input("Type your message: ").lower()
-    shift = int(input("Type the shift number: "))
+continuar = True
+while continuar:
+    direcao = input("Digite 'codificar' para criptografar, ou 'decodificar' para descriptografar: ").lower()
+    texto = input("Digite sua mensagem: ").lower()
+    deslocamento = int(input("Digite o número do deslocamento: "))
 
-    ceasar(original_text=text, shift_amount=shift, encode_or_decode=direction)
+    cifra_cesar(texto_original=texto, deslocamento=deslocamento, direcao=direcao)
 
-    restart = input("Type 'yes' if you want to go again. Otherwise type 'no': ").lower()
-    if restart == "no":
-        should_continue = False
-        print("Goodbye 👋")
+    reiniciar = input("Deseja tentar novamente? Digite 'sim' para continuar ou 'nao' para sair: ").lower()
+    if reiniciar == "nao":
+        continuar = False
+        print("Até logo 👋")
